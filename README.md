@@ -11,9 +11,15 @@ Ben10 Omnitrix is an interactive toy which reacts to some sounds embedded inside
 > python3 generator.py --help
 Usage: generator.py [options] (code)+
 
-generate waveforms corresponding to the given codes which trigger actions on a ben10 omnitrix toy device.
+generate waveforms corresponding to the given codes which trigger
+actions on a ben10 omnitrix toy device.
 
-code is a string of base 4 digit (0,1,2,3) of any length forming a code to generate. you can specify multiple codes, they will be either played in sequence or saved individually as wave files. you can also use a asterisk (*) as a wildcard for any digit of the code, the generator will then generate multiple codes going through all posible values for this digit.
+code is a string of base 4 digit (0,1,2,3) of any length forming a 
+code to generate. you can specify multiple codes, they will be either
+played in sequence or saved individually as wave files. you can also
+use a asterisk (*) as a wildcard for any digit of the code, the
+generator will then generate multiple codes going through all posible
+values for this digit.
 
 Options:
   -h, --help            show this help message and exit
