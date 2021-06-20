@@ -59,7 +59,7 @@ def getcodes(code, prefix=''):
             yield from getcodes(code[1:], generated)
             generated = generated[:-1]
     else:
-        raise ValueError('invalid character in code: '+code[0]+'. allowed characters are \'0\',\'1\',\'2\',\'3\' and \'.\'')
+        raise ValueError('invalid character in code: '+code[0]+'. allowed characters are \'0\',\'1\',\'2\',\'3\' and \'*\'')
 
 def main():
     parser = optparse.OptionParser('usage: %prog [options] (code)+ \n\ngenerate waveforms corresponding to the given codes which trigger actions on a ben10 omnitrix toy device.\n\ncode is a string of base 4 digit (0,1,2,3) of any length forming a code to generate. you can specify multiple codes, they will be either played in sequence or saved individually as wave files. you can also use a asterisk (*) as a wildcard for any digit of the code, the generator will then generate multiple codes going through all posible values for this digit.')
