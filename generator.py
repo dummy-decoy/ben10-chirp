@@ -24,17 +24,20 @@ def generate(code):
         result.extend(tone(carrier))
     return result
 
+def export(filename, signal, samplerate):
+    data = bytes.join(b'', (struct.pack('<h',int(sample*32767)) for sample in signal))
+    output = wave.open(filename, 'wb')
+    output.setparams((1,2,samplerate,0,'NONE',''))
+    output.writeframes(data)
+    output.close()
+
 def main():
     code = sys.argv[1]
     print('generating ben10-chirp for code:', code)
 
     samples = generate(code)
-    data = bytes.join(b'', (struct.pack('<h',int(sample*32767)) for sample in samples))
-
-    output = wave.open(code+'.wav', 'wb')
-    output.setparams((1,2,samplerate,0,'NONE',''))
-    output.writeframes(data)
-    output.close()
+    export(code+'.wav', samples, samplerate)
+   
 
 if __name__ == '__main__':
     main()

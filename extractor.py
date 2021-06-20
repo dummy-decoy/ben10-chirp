@@ -5,12 +5,14 @@ import math
 import struct
 import wave
 
-framerate = 24
+
 brk = ' '
 car = 'c'
 symbols = ('0','1',car,'2','3')
 tones = (14000,14500,15000,15500,16000)
 binwidth = 500
+framerate = 24
+
 
 def dft_term(signal, samplerate, frequency):
     return abs(sum(sample*(math.e**complex(0,-2*math.pi*index/samplerate*frequency)) for index,sample in enumerate(signal)))/(len(signal)/2)
